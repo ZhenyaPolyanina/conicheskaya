@@ -146,8 +146,8 @@ points.forEach(point => {
 
 const drawText = ({x, y}, text) => {
   console.log(x, y);
-  ctx.font = '15px Arial';
-  ctx.fillStyle = '#000';
+  ctx.font = '20px Arial';
+  ctx.fillStyle = '#fff';
   ctx.fillText(text, x, y);
 };
 
@@ -192,10 +192,11 @@ let map;
 const mapImageSource = document.getElementById('mapImage');
 
 const white = [255, 255, 255, 255];
+const black = [0, 0, 0, 255];
 const red = [255, 0, 0, 255];
 const getMapColor = (longitude, latitude) => {
   if (!mapImageData) {
-    return white;
+    return black;
   }
 
   const normalizedLongitude = (longitude + 180) / 360;
@@ -215,7 +216,7 @@ const createMap = (imageData) => {
 
       let color;
       if (longitude < 0 || longitude > 60 || latitude > 70) {
-        color = white;
+        color = black;
       } else {
         color = getMapColor(longitude, latitude);
       }
@@ -226,16 +227,15 @@ const createMap = (imageData) => {
   return imageData;
 };
 
-let drawPlanet = false;
 const redraw = () => {
   ctx.clearRect(0, 0, width, height);
-  if (drawPlanet && map) {
+  if (map) {
     ctx.putImageData(map, 0, 0);
-  } else {
-    lines.forEach(line => {
-      drawLine( line.map(projectEquirectangular) );
-    });
   }
+
+  lines.forEach(line => {
+    drawLine( line.map(projectEquirectangular), '#fff' );
+  });
 
   for (let i = 0; i <= 60; i += 10) {
     drawText( projectEquirectangular({
@@ -249,10 +249,6 @@ const redraw = () => {
       latitude: i / 180 * Math.PI,
     }), i + '*');
   }
-
-  const imageData = ctx.getImageData(0, 0, width, height);
-  ctx.clearRect(0, 0, width, height);
-  ctx.putImageData(imageData, 0, -100);
 
   const coast = [
     {latitude: 47.116623 / 180 * Math.PI, longitude: 51.026532 / 180 * Math.PI},
@@ -271,12 +267,6 @@ const redraw = () => {
   drawLine( coast.map(projectEquirectangular), '#f00' );
 
   marks.forEach(drawMark);
-};
-
-const modeChooser = document.getElementById('modeChooser');
-modeChooser.onchange = () => {
-  drawPlanet = !drawPlanet;
-  redraw();
 };
 
 mapImageSource.onload = () => {
@@ -301,4 +291,3 @@ window.onresize = () => {
 };
 fitCanvas(getWindowDimensions());
 redraw();
-

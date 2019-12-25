@@ -96,11 +96,7 @@ const addMarkAt = (longitude, latitude, text) => {
   marks.push({x, y, longitude, latitude, text});
 };
 
-/*
-addMarkAt(10.04 / 180 * Math.PI, 53.54 / 180 * Math.PI, 'Гамбург');
-addMarkAt(43.94 / 180 * Math.PI, 56.28 / 180 * Math.PI, 'Нижний Новгород');
-addMarkAt(44.51 / 180 * Math.PI, 48.71 / 180 * Math.PI, 'Волгоград');
-*/
+
 
 canvas.onclick = (event) => {
   const position = {x: event.offsetX, y: event.offsetY};
@@ -252,16 +248,23 @@ const redraw = () => {
 
   const coast = [
     {latitude: 47.116623 / 180 * Math.PI, longitude: 51.026532 / 180 * Math.PI},
-    {latitude: 46.843689 / 180 * Math.PI, longitude: 52.142414 / 180 * Math.PI},
-    {latitude: 46.227719 / 180 * Math.PI, longitude: 53.281371 / 180 * Math.PI},
-    {latitude: 45.397448 / 180 * Math.PI, longitude: 51.986222 / 180 * Math.PI},
-    {latitude: 43.892946 / 180 * Math.PI, longitude: 51.044532 / 180 * Math.PI},
-    {latitude: 40.375084 / 180 * Math.PI, longitude: 52.771334 / 180 * Math.PI},
-    {latitude: 37.867496 / 180 * Math.PI, longitude: 53.819556 / 180 * Math.PI},
-    {latitude: 36.745190 / 180 * Math.PI, longitude: 51.102553 / 180 * Math.PI},
-    {latitude: 41.287562 / 180 * Math.PI, longitude: 49.126104 / 180 * Math.PI},
-    {latitude: 44.824951 / 180 * Math.PI, longitude: 47.179915 / 180 * Math.PI},
-    {latitude: 46.539727 / 180 * Math.PI, longitude: 49.906239 / 180 * Math.PI},
+    {latitude: 46.005694 / 180 * Math.PI, longitude: 51.026532 / 180 * Math.PI},
+    {latitude: 45.542965 / 180 * Math.PI, longitude: 53.615691 / 180 * Math.PI},
+    {latitude: 45.809938 / 180 * Math.PI, longitude: 54.175193 / 180 * Math.PI},
+    {latitude: 45.250693 / 180 * Math.PI, longitude: 54.471314 / 180 * Math.PI},
+    //{latitude: 45.335705 / 180 * Math.PI, longitude: 45.335705 / 180 * Math.PI},
+    {latitude: 44.581921 / 180 * Math.PI, longitude: 50.738339 / 180 * Math.PI},
+    {latitude: 42.455213 / 180 * Math.PI, longitude: 52.627102 / 180 * Math.PI},
+    {latitude:  41.270015/ 180 * Math.PI, longitude: 54.486656 / 180 * Math.PI},
+    {latitude: 40.436145 / 180 * Math.PI, longitude: 52.765181 / 180 * Math.PI},
+    {latitude: 39.247042 / 180 * Math.PI, longitude: 53.602681 / 180 * Math.PI},
+    {latitude: 37.528697 / 180 * Math.PI, longitude: 53.895846 / 180 * Math.PI},
+    {latitude: 36.559983 / 180 * Math.PI, longitude: 51.914280 / 180 * Math.PI},
+    {latitude: 38.199429 / 180 * Math.PI, longitude: 48.910991 / 180 * Math.PI},
+    {latitude: 40.330972 / 180 * Math.PI, longitude: 49.775138 / 180 * Math.PI},
+    {latitude: 41.930070 / 180 * Math.PI, longitude: 48.438206 / 180 * Math.PI},
+    {latitude: 44.488165 / 180 * Math.PI, longitude: 47.038340 / 180 * Math.PI},
+    {latitude: 46.194292 / 180 * Math.PI, longitude: 49.240681 / 180 * Math.PI},    
     {latitude: 47.116623 / 180 * Math.PI, longitude: 51.026532 / 180 * Math.PI},
   ];
   drawLine( coast.map(projectEquirectangular), '#f00' );

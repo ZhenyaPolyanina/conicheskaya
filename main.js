@@ -239,15 +239,15 @@ const redraw = () => {
       latitude: 70 / 180 * Math.PI,
     }), i + '*');
   }
-  for (let i = 0; i <= 60; i += 10) {
+ 
     drawText( projectEquirectangular({
-      longitude: 0 / 180 * Math.PI,
-      latitude: i / 180 * Math.PI,
-    }), i + '*');
-  }
+      longitude: 47.116623  / 180 * Math.PI,
+      latitude: 51.026532 / 180 * Math.PI,
+    }),'Каспийское море');
+ 
 
   const coast = [
-    {latitude: 47.116623 / 180 * Math.PI, longitude: 51.026532 / 180 * Math.PI,'Каспийское море'},
+    {latitude: 47.116623 / 180 * Math.PI, longitude: 51.026532 / 180 * Math.PI,},
     {latitude: 46.005694 / 180 * Math.PI, longitude: 51.026532 / 180 * Math.PI},
     {latitude: 45.542965 / 180 * Math.PI, longitude: 53.615691 / 180 * Math.PI},
     {latitude: 45.809938 / 180 * Math.PI, longitude: 54.175193 / 180 * Math.PI},
